@@ -1,6 +1,7 @@
 import datetime as dt
 import matplotlib.pyplot as plt
 from matplotlib import style
+
 import pandas as pd
 import pandas_datareader.data as web
 from bs4 import BeautifulSoup
@@ -105,6 +106,8 @@ def summary():
     for i in graph:
         if i == 'g':
             t['Adj Close'].plot(label = str(ticker), figsize=(16, 8), title = str(ticker))
+            #plt.finance.candlestick2_ochl(ax, t['Open'], t['Close'], t['High'], t['Low'], width=4, colorup='k', colordown='r', alpha=0.75)
+            plt.ylabel("Price ($)")
             plt.legend();
             plt.show()
         elif i == 'c':
@@ -124,6 +127,7 @@ def summary():
 
             t['Adj Close'].plot(label = str(ticker), figsize=(16, 8), title = str(ticker + " / " + cticker))
             compare['Adj Close'].plot(label = str(cticker))
+            plt.ylabel("Price ($)")
             plt.legend();
             plt.show()
 
